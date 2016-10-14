@@ -1,0 +1,39 @@
+<aura:component controller="IPIdeaController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+        
+    <aura:attribute name="zone" type="IP_Zone__c" />
+    <aura:attribute name="isExpert" type="Boolean" default="false" />
+    <aura:attribute name="idea" type="IP_Idea__c" />
+       
+    <aura:if isTrue="{!v.isExpert}">
+    
+        <article class="slds-card">
+            <header class="slds-card__header slds-grid">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">                
+                    <div class="slds-media__body slds-truncate">
+                        <h2>
+                            <span class="slds-text-heading--small">Moderator Actions</span>
+                        </h2>
+                    </div>
+                </div>
+            </header>            
+            <div class="slds-card__body">
+                <div class="slds-grid slds-grid--pull-padded slds-m-horizontal--small slds-m-vertical--small">
+                    <div class="slds-col slds-col--padded">
+                        <label class="slds-form-element__label" for="statusInput">Status</label>
+                        <div>                         
+                            <ui:inputSelect aura:id="ideaStatusInput" change="{!c.updateIdea}" value="{!v.idea.Status__c}" >
+                                <aura:iteration var="status" items="{!v.zone.Statuses__r}">
+                                    <ui:inputSelectOption label="{!status.Name}" text="{!status.Id}" />
+                                </aura:iteration>
+                            </ui:inputSelect>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+    </aura:if>
+    
+</aura:component>

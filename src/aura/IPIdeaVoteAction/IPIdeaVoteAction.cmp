@@ -1,0 +1,19 @@
+<aura:component controller="IPIdeaController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
+    
+    <aura:attribute name="hasLockStatus" type="Boolean" />
+    <aura:attribute name="hasVotedOnIdea" type="Boolean" />
+     
+    <div class="slds-grid slds-wrap slds-grid--pull-padded">
+        <div class="slds-col--padded">
+            <aura:if isTrue="{!v.hasLockStatus == false}">
+            	<aura:if isTrue="{!v.hasVotedOnIdea == false}">
+                	<ui:button class="slds-button--brand slds-size--1-of-1" label="Vote +1" press="{!c.voteUp}" />
+            	</aura:if>
+            </aura:if>
+        </div>
+    </div>
+    
+</aura:component>

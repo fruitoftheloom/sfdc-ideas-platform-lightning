@@ -1,0 +1,9 @@
+<apex:page standardController="IP_Idea__c" 
+           extensions="IPIdeaController" 
+           showHeader="false" 
+           standardStylesheets="false" 
+           showChat="false" 
+           sidebar="false"
+           action="{!redirectToLightning}">
+
+</apex:page>

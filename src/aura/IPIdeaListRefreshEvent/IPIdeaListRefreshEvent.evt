@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event used to refresh the idea list">
+    <aura:attribute name="filter" type="String" />
+    <aura:attribute name="sort" type="String" />
+</aura:event>

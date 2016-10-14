@@ -1,0 +1,58 @@
+<aura:component controller="IPIdeaController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId">
+
+    <!-- Events -->
+        
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:registerEvent name="IPIdeaListRefreshEvent" type="c:IPIdeaListRefreshEvent"/>
+	
+    <!-- Attributes -->    
+    <aura:attribute name="zone" type="IP_Zone__c" />
+    <aura:attribute name="filter" type="String" default="All" />
+    <aura:attribute name="sort" type="String" default="Trending" />
+
+    <div class="slds">
+		
+        <div class="slds-grid slds-grid--pull-padded slds-m-bottom--small">
+            <div class="slds-col slds-col--padded">
+                <ui:inputSelect change="{!c.onSortChange}">
+                    <ui:inputSelectOption aura:id="recent" text="Recent" />
+                    <ui:inputSelectOption aura:id="recent" text="Popular" />
+                </ui:inputSelect>
+            </div>
+        </div>
+        
+        <div class="slds-card">
+            <div class="slds-card__header slds-grid grid--flex-spread">
+                <h2 class="slds-text-heading--small slds-truncate">Category</h2>
+            </div>
+            <div class="slds-card__body slds-m-left--small">
+                <h3 data-record="All" class="slds-text-heading--x-small">
+                    <ui:outputURL value="" click="{!c.filterIdeaList}" label="All" />
+                </h3>
+                <aura:iteration var="category" items="{!v.zone.Categories__r}">
+                    <h3 class="slds-text-heading--x-small">
+                        <ui:outputURL value="" click="{!c.filterIdeaList}" label="{!category.Name}" />
+                    </h3>
+                </aura:iteration>
+            </div>
+        </div>
+        <div class="slds-card">
+            <div class="slds-card__header slds-grid grid--flex-spread">
+                <h2 class="slds-text-heading--small slds-truncate">Status</h2>
+            </div>
+            <div class="slds-card__body slds-m-left--small">
+                <h3 data-record="All" class="slds-text-heading--x-small">
+                    <ui:outputURL value="" click="{!c.filterIdeaList}" label="All" />
+                </h3>
+                <aura:iteration var="status" items="{!v.zone.Statuses__r}">
+                    <h3 class="slds-text-heading--x-small">
+                        <ui:outputURL value="" click="{!c.filterIdeaList}" label="{!status.Name}" />
+                    </h3>
+                </aura:iteration>
+            </div>
+        </div>        
+        
+    </div>
+
+</aura:component>

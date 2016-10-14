@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>IP_Zone_Record_View</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>IP_Zone_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>IP_Zone_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <label>IP Zone Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Initial_Status_Count__c</fullName>
+        <description>Enforces only one status marked as Initial Status is linked to a zone.</description>
+        <externalId>false</externalId>
+        <label>Initial Status Count</label>
+        <summaryFilterItems>
+            <field>IP_Status__c.Initial_Status__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>IP_Status__c.Zone__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Point_Threshold__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>This field determines what the threshold is for an idea before it begins the consideration process 
+http://jira.fruit.com/browse/SFDC-1129</description>
+        <externalId>false</externalId>
+        <label>Point Threshold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Points_per_Vote__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>This field will determine how many points a vote is worth in this zone
+http://jira.fruit.com/browse/SFDC-1129</description>
+        <externalId>false</externalId>
+        <label>Points per Vote</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Threshold_Status_Count__c</fullName>
+        <description>Enforces only one status marked as Threshold Status is linked to a zone.</description>
+        <externalId>false</externalId>
+        <label>Threshold Status Count</label>
+        <summaryFilterItems>
+            <field>IP_Status__c.Threshold_Status__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>IP_Status__c.Zone__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Zone</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Zones</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.ALIAS</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OWNER.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Single_Initial_Status</fullName>
+        <active>true</active>
+        <description>Enforces a zone only has one status marked as Initial Status.</description>
+        <errorConditionFormula>Initial_Status_Count__c &gt; 1</errorConditionFormula>
+        <errorMessage>A zone can only have one status marked as initial status.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Single_Threshold_Status</fullName>
+        <active>true</active>
+        <description>Enforces a zone only has one status marked as Threshold Status.</description>
+        <errorConditionFormula>Threshold_Status_Count__c &gt; 1</errorConditionFormula>
+        <errorMessage>A zone can only have one status marked as threshold status.</errorMessage>
+    </validationRules>
+</CustomObject>

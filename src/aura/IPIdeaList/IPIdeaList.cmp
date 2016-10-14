@@ -1,0 +1,37 @@
+<aura:component controller="IPIdeaController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId">
+
+    <!-- Events -->
+    
+    <aura:handler event="c:IPIdeaListRefreshEvent" action="{!c.getIdeaList}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- Attributes -->
+    <!-- Remove in the future zoneName no longer used -->    
+    <aura:attribute name="ideaList" type="IP_Idea__c[]" />   
+    <aura:attribute name="filter" type="String" default="All" />
+
+    <div class="slds">
+
+        <div aura:id="idea-list-page">
+            
+            <div aura:id="idea-list" class="slds-grid slds-m-top--small">                
+                <div class="slds-col slds-col--padded">
+                    <div aura:id="filtered-message">
+                        <p class="slds-text-heading--label">Filtered by {!v.filter}</p>
+                    </div>
+                    <div class="slds-feed">
+                        <ul class="slds-feed__list">
+                            <aura:iteration var="idea" items="{!v.ideaList}">
+                            	<li class="slds-feed__item">
+                                	<c:IPIdeaCard idea="{!idea}" truncateText="true" />
+                                </li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        
+    </div>
+
+</aura:component>

@@ -1,0 +1,16 @@
+{!IP_Idea__c.CreatedBy},
+
+<br><br>
+
+Your idea's status has been changed to <b>{!IP_Idea__c.Status__c}</b>
+<br><br>
+
+You can view your idea and comments here:  <a href="{!$Setup.Global_Settings__c.My_Domain_URL__c}/one/one.app#/sObject/{!IP_Idea__c.Id}/view">{!IP_Idea__c.Title__c}</a>
+
+<br><br>
+
+Thanks, 
+
+<br><br>
+
+Ideas Team

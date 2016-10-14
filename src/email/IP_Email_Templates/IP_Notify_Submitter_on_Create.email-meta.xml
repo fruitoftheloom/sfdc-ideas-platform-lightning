@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template used when a creator first submits an Idea</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>IP - Notify Submitter on Create</name>
+    <style>none</style>
+    <subject>Your Idea has been Created!</subject>
+    <textOnly>{!IP_Idea__c.CreatedBy},
+
+Your idea has been created!  You will be notified when your idea meets the point threshold for review.
+
+You can view your idea and comments here: {!IP_Idea__c.Title__c}
+
+Thanks,
+
+Ideas Team</textOnly>
+    <type>custom</type>
+</EmailTemplate>

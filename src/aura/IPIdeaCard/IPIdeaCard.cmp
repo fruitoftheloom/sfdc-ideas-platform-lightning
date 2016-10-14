@@ -1,0 +1,48 @@
+<aura:component controller="IPIdeaController">
+	
+	<aura:attribute name="idea" type="IP_Idea__c" />
+	<aura:attribute name="truncateText" type="Boolean" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<div class="slds-media slds-comment slds-hint-parent slds-m-top--medium">
+	    <div class="slds-media__figure">
+	        <span class="slds-avatar slds-avatar--circle slds-avatar--medium">
+	            <img src="{!v.idea.CreatedBy.SmallPhotoUrl}" alt="{!v.idea.CreatedBy.Name}" />
+	        </span>
+	    </div>
+	    <div class="slds-media__body">
+	        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+	            <p class="slds-tile__title slds-truncate slds-text-body--large">
+	            	<ui:outputURL value="" click="{!c.viewIdea}" label="{!v.idea.Title__c}" />
+	            </p>
+	        </div>
+	        <div class="slds-tile__detail slds-text-body--small">
+	            <ul class="slds-list--horizontal slds-has-dividers">
+	                <li class="slds-truncate slds-list__item">by {!v.idea.CreatedBy.Name}</li>
+	            </ul>
+	        </div>
+	        <div class="slds-comment__content slds-text-longform slds-has-flexi-truncate">
+	            <p>{!v.idea.Body__c}</p>
+	        </div>
+	        <div class="slds-tags slds-text-body--small slds-p-bottom--x-small">
+	            <span>{!v.idea.Status__r.Name}</span>
+	        </div>
+	        <div class="slds-tags slds-text-body--small slds-p-bottom--x-small">
+	            <span>Category:</span>
+	            <ul class="slds-tags__list">
+	                <li class="slds-tags__item">{!v.idea.Category__r.Name}</li>
+	            </ul>
+	        </div>
+	        <ul class="slds-list--horizontal slds-has-dividers--right slds-text-body--small">
+	            <li class="slds-list__item">
+	                <ui:outputDate value="{!v.idea.CreatedDate}" />
+	            </li>
+	            <li class="slds-list__item">
+	                {!v.idea.Total_Score__c} Points
+	            </li>
+	        </ul>
+	    </div>
+	</div>
+	
+</aura:component>

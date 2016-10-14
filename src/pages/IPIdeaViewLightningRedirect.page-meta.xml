@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>37.0</apiVersion>
+    <availableInTouch>false</availableInTouch>
+    <confirmationTokenRequired>false</confirmationTokenRequired>
+    <description>Page is used to override default idea view page and redirect to lightning page. This is necessary for chatter links that are sent when someone hasn&apos;t switched to lightning experience.</description>
+    <label>IPIdeaViewLightningRedirect</label>
+</ApexPage>

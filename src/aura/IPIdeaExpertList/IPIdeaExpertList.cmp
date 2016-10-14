@@ -1,0 +1,35 @@
+<aura:component controller="IPIdeaController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+        
+    <aura:attribute name="expertList" type="IP_Expert__c[]" />
+    
+    <article class="slds-card">
+        <header class="slds-card__header slds-grid">
+            <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body slds-truncate">
+                    <h2>                        
+                        <span class="slds-text-heading--small">Your Experts</span>                        
+                    </h2>
+                </div>
+            </div>
+        </header>
+        <div class="slds-card__body">
+            <aura:iteration var="expert" items="{!v.expertList}">
+                <div class="slds-m-left--large  slds-m-bottom--medium slds-media slds-media--top slds-no-space slds-grow">                  
+                    <div class="slds-media__figure">
+                        <div class="slds-avatar slds-avatar--circle slds-avatar--small">
+                            <a href="javascript:void(0);" title="{!expert.User__r.Name}">
+                                <img src="{!expert.User__r.SmallPhotoUrl}" alt="{!expert.User__r.Name}" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-text-heading--label">{!expert.User__r.Name}</p>
+                    </div>                                            
+                </div>
+            </aura:iteration>
+        </div>
+    </article>
+    
+</aura:component>
