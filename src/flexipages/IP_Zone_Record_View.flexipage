@@ -16,7 +16,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>IPIdeaActionList</componentName>
+            <componentName>IPIdeaListActions</componentName>
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>

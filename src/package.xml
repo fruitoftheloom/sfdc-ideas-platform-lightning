@@ -3,14 +3,11 @@
     <types>
         <members>IPIdeaExpertList</members>
         <members>IPIdeaList</members>
-        <members>IPIdeaListRefreshEvent</members>
-        <members>IPIdeaModeratorActions</members>
-        <members>IPIdeaVoteAction</members>
-        <members>IPIdeaActionList</members>
         <members>IPIdeaCard</members>
         <members>IPIdeaListRefreshEvent</members>
         <members>IPIdeaModeratorActions</members>
         <members>IPIdeaVoteAction</members>
+        <members>IPIdeaListActions</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
