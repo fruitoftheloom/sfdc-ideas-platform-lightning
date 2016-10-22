@@ -5,4 +5,9 @@
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <description>Page is used to override default idea view page and redirect to lightning page. This is necessary for chatter links that are sent when someone hasn&apos;t switched to lightning experience.</description>
     <label>IPIdeaViewLightningRedirect</label>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>7</minorNumber>
+        <namespace>sf_com_apps</namespace>
+    </packageVersions>
 </ApexPage>
