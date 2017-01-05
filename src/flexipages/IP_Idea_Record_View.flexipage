@@ -19,16 +19,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>IPIdeaVoteAction</componentName>
-        </componentInstances>
-        <componentInstances>
             <componentName>force:relatedListContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentName>IPIdeaModeratorActions</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentName>IPIdeaExpertList</componentName>
         </componentInstances>
         <name>sidebar</name>
         <type>Region</type>

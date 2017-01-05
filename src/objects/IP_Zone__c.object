@@ -42,6 +42,12 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
+        <content>IPZoneViewLightningRedirect</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
         <content>IP_Zone_Record_View</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -63,6 +69,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Initial_Status_Count__c</fullName>
         <description>Enforces only one status marked as Initial Status is linked to a zone.</description>

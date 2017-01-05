@@ -56,6 +56,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Available__c</fullName>
         <defaultValue>true</defaultValue>
@@ -65,6 +66,30 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Post_to_Chatter_Message__c</fullName>
+        <defaultValue>&quot;This idea has earned enough points and will be reviewed.&quot;</defaultValue>
+        <description>Text that will be posted to chatter</description>
+        <externalId>false</externalId>
+        <label>Post to Chatter Message</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Post_to_Chatter_as_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>User that will post to the idea once it has reached a point threshold specified on the zone.</description>
+        <externalId>false</externalId>
+        <label>Post to Chatter as User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Categories1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Zone__c</fullName>

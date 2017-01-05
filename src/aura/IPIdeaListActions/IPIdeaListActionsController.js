@@ -7,6 +7,10 @@
             component.set( "v.zone", result );                       
         });
         
+        helper.setIsIdeaAdmin( component, function( result ) {            
+            component.set( "v.isIdeaAdmin", result );                       
+        });
+        
     },
     
     onSortChange : function( component, event, helper ) {
@@ -28,6 +32,14 @@
         component.set( "v.filter", filter );        
 
         helper.refreshIdeaList( component );
+        
+    },
+    
+    redirectToZone : function( component, event, helper ) {
+        
+        var getUrl = window.location;
+		var redirectUrl = getUrl .protocol + "//" + getUrl.host + "/" + component.get( "v.recordId" ) + "?nooverride=1";
+        window.location = redirectUrl;        
         
     }
     

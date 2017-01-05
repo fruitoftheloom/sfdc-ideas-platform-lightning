@@ -9,15 +9,17 @@
     <!-- Attributes -->    
     <aura:attribute name="zone" type="IP_Zone__c" />
     <aura:attribute name="filter" type="String" default="All" />
-    <aura:attribute name="sort" type="String" default="Trending" />
+    <aura:attribute name="sort" type="String" default="New" />
+    <aura:attribute name="isIdeaAdmin" type="Boolean" default="false" />
 
     <div class="slds">
 		
         <div class="slds-grid slds-grid--pull-padded slds-m-bottom--small">
             <div class="slds-col slds-col--padded">
                 <ui:inputSelect change="{!c.onSortChange}">
+                    <ui:inputSelectOption aura:id="new" text="New" />
+                    <ui:inputSelectOption aura:id="recentActivity" text="Recent Activity" />
                     <ui:inputSelectOption aura:id="popular" text="Popular" />
-                    <ui:inputSelectOption aura:id="recent" text="Recent" />
                 </ui:inputSelect>
             </div>
         </div>
@@ -51,8 +53,18 @@
                     </h3>
                 </aura:iteration>
             </div>
-        </div>        
-        
+        </div>
+        <aura:if isTrue="{!v.isIdeaAdmin == true}">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid grid--flex-spread">
+                    <h2 class="slds-text-heading--small slds-truncate">Moderator Actions</h2>
+                </div>
+                <div class="slds-card__body slds-m-left--small">
+                    <ui:button class="slds-button--brand slds-size--1-of-2" label="Edit Zone" press="{!c.redirectToZone}" />
+                </div>
+            	<br></br>
+            </div>          
+        </aura:if>   
     </div>
 
 </aura:component>

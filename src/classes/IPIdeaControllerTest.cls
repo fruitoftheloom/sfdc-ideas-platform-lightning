@@ -259,6 +259,65 @@ public class IPIdeaControllerTest {
 
         System.assert(!isZoneExpert);
     }
+    
+    @isTest
+    static void test_validateCategoryExpert(){
+        IP_Zone__c zone = createZone();
+        IP_Status__c initialStatus = createInitialStatus(zone.Id);
+        IP_Status__c thresholdStatus = createThresholdStatus(zone.Id);
+        IP_Idea__c idea = createIdea(zone.Id);
+        IP_Category__c category = [SELECT Id, Zone__c FROM IP_Category__c WHERE Id = :idea.Category__c];
+        IP_Expert__c expert = createExpert(zone.Id, category.Id);
+        IP_Expert__c expert2 = createExpert(zone.Id, category.Id);
+
+        Test.startTest();
+
+        IPIdeaController.voteForIdea( idea.Id, true );
+        
+        Test.stopTest();
+
+        List<IP_Expert__c> experts = [SELECT Id FROM IP_Expert__c WHERE Category__c = :category.Id];
+        System.assertEquals( 2 , experts.size() );
+    }
+    
+    @isTest
+    public static void test_isIdeaAdmin_false(){
+        
+        try{
+            PermissionSetAssignment psa = [ SELECT Id
+                                            FROM PermissionSetAssignment 
+                                            WHERE AssigneeId = :UserInfo.getUserId()
+                                            AND PermissionSet.Name = 'IP_Idea_Admin'
+                                          ];
+            delete psa;
+        }catch( Exception e ){
+            
+        }
+        
+        Boolean isIdeaAdmin = IPIdeaController.isIdeaAdmin();
+
+        System.assertEquals( false, isIdeaAdmin );
+    }
+    
+    @isTest
+    public static void test_isIdeaAdmin_true(){
+        
+        try{
+            PermissionSetAssignment psa = new PermissionSetAssignment( 
+                AssigneeId = UserInfo.getUserId(),
+                PermissionSetId = [ SELECT Id
+                                    FROM PermissionSet
+                                  	WHERE Name = 'IP_Idea_Admin'
+                                  ].Id);
+            insert psa;
+        }catch( Exception e ){
+            
+        }
+        
+        Boolean isIdeaAdmin = IPIdeaController.isIdeaAdmin();
+
+        System.assertEquals( true, isIdeaAdmin );
+    }
 
     private static IP_Zone__c createZone(){
         IP_Zone__c zone = new IP_Zone__c (

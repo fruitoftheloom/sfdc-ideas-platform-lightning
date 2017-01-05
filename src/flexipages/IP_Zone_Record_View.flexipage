@@ -8,16 +8,10 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentName>IPIdeaList</componentName>
-        </componentInstances>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentName>IPIdeaListActions</componentName>
-        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>entityNames</name>

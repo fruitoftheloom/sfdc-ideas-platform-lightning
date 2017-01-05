@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>IPIdeaExpertList</members>
-        <members>IPIdeaList</members>
-        <members>IPIdeaCard</members>
-        <members>IPIdeaListRefreshEvent</members>
-        <members>IPIdeaModeratorActions</members>
-        <members>IPIdeaVoteAction</members>
-        <members>IPIdeaListActions</members>
-        <name>AuraDefinitionBundle</name>
-    </types>
-    <types>
         <members>IPIdeaController</members>
         <members>IPIdeaControllerTest</members>
-        <members>IPIdeaTriggerHelper</members>
         <members>IPIdeaSeedUtility</members>
+        <members>IPIdeaTriggerHelper</members>
+        <members>IPChatterUtils</members>
+        <members>IPChatterUtilsTest</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>IPIdeaViewLightningRedirect</members>
+        <members>IPZoneViewLightningRedirect</members>
+        <name>ApexPage</name>
     </types>
     <types>
         <members>IPIdeaTrigger</members>
@@ -23,21 +20,18 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>IPIdeaCard</members>
+        <members>IPIdeaExpertList</members>
+        <members>IPIdeaList</members>
+        <members>IPIdeaListActions</members>
+        <members>IPIdeaListRefreshEvent</members>
+        <members>IPIdeaModeratorActions</members>
+        <members>IPIdeaVoteAction</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
         <members>Ideas</members>
         <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
-        <members>IP_Category__c-IP Category Layout</members>
-        <members>IP_Expert__c-IP Expert Layout</members>
-        <members>IP_Idea__c-IP Idea Layout</members>
-        <members>IP_Status__c-IP Status Layout</members>
-        <members>IP_Vote__c-IP Vote Layout</members>
-        <members>IP_Zone__c-IP Zone Layout</members>
-        <name>Layout</name>
     </types>
     <types>
         <members>IP_Category__c</members>
@@ -47,15 +41,6 @@
         <members>IP_Vote__c</members>
         <members>IP_Zone__c</members>
         <name>CustomObject</name>
-    </types>
-    <types>
-        <members>IPIdeaViewLightningRedirect</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>IP_Idea_Admin</members>
-        <members>IP_Idea_User</members>
-        <name>PermissionSet</name>
     </types>
     <types>
         <members>IP_Category__c</members>
@@ -68,9 +53,28 @@
     <types>
         <members>IP_Email_Templates</members>
         <members>IP_Email_Templates/IP_Notify_Experts_Point_Threshold_Reached</members>
-        <members>IP_Email_Templates/IP_Notify_Submitter_on_Create</members>
         <members>IP_Email_Templates/IP_Notify_Submitter_Status_Changed</members>
+        <members>IP_Email_Templates/IP_Notify_Submitter_on_Create</members>
         <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>IP_Idea_Record_View</members>
+        <members>IP_Zone_Record_View</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>IP_Category__c-IP Category Layout</members>
+        <members>IP_Expert__c-IP Expert Layout</members>
+        <members>IP_Idea__c-IP Idea Layout</members>
+        <members>IP_Status__c-IP Status Layout</members>
+        <members>IP_Vote__c-IP Vote Layout</members>
+        <members>IP_Zone__c-IP Zone Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>IP_Idea_Admin</members>
+        <members>IP_Idea_User</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>IP_Zone__c.IP_Zone_Post_Idea</members>
@@ -85,5 +89,9 @@
         <members>IP_Zone__c</members>
         <name>Workflow</name>
     </types>
-    <version>37.0</version>
+    <types>
+        <members>IP_Internal_Community_Notifications</members>
+        <name>Flow</name>
+    </types>
+    <version>36.0</version>
 </Package>

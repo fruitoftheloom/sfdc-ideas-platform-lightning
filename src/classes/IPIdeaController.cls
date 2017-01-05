@@ -23,7 +23,7 @@ public with sharing class IPIdeaController {
 
     @AuraEnabled
     public static List<IP_Idea__c > getIdeasByZoneId( Id zoneId, String filterBy, String sortBy ) {
-
+        
         String baseQuery = 'SELECT Id, Body__c, Category__r.Name, Zone__c, CreatedDate, CreatedBy.Id, CreatedBy.Name, CreatedBy.FullPhotoUrl, CreatedBy.SmallPhotoUrl, LastViewedDate, Status__r.Name, Title__c, Total_Votes__c, Total_Score__c FROM IP_Idea__c WHERE Zone__c = :zoneId';
 
         Boolean hasFilter = ( String.isNotBlank( filterBy ) && filterBy != 'All' );
@@ -45,17 +45,22 @@ public with sharing class IPIdeaController {
             if( sortBy == 'Popular' ) {
                 sortBy = 'Total_Votes__c';
             }
-            else if( sortBy == 'Recent' ) {
+            else if( sortBy == 'New' ) {
                 sortBy = 'CreatedDate';
+            }
+            else if( sortBy == 'Recent Activity' ) {
+                sortBy = 'LastModifiedDate';
             }
             else {
                 sortBy = null;
             }
-
-            if( String.isNotBlank( sortBy ) ) {
+            
+            if(String.isNotBlank( sortBy )){
                 baseQuery += ' ORDER BY ' + sortBy + ' DESC';
             }
 
+        } else {
+            baseQuery += ' ORDER BY CreatedDate DESC';
         }
         
         List<IP_Idea__c> ideaList = Database.query( baseQuery );
@@ -90,6 +95,7 @@ public with sharing class IPIdeaController {
             SELECT 
                 Id,
                 User__c,
+                User__r.Email,
                 User__r.Name,
                 User__r.SmallPhotoUrl
             FROM 
@@ -133,6 +139,24 @@ public with sharing class IPIdeaController {
         return false;
 
     }
+    
+    @AuraEnabled
+    public static Boolean isIdeaAdmin( ) {
+
+        String userId = getUserId();
+        
+        try{
+        	PermissionSetAssignment psa = [ SELECT Id
+                                          	FROM PermissionSetAssignment
+                                          	WHERE AssigneeId = :userId
+                                          		AND PermissionSet.Name = 'IP_Idea_Admin'
+                                          ];
+            return true;
+        }catch( Exception e ){
+            return false;
+        }
+
+    }
 
     @AuraEnabled
     public static List<IP_Vote__c> getIdeaVoteList( String ideaId ) {
@@ -173,9 +197,9 @@ public with sharing class IPIdeaController {
                 Id, 
                 Body__c, 
                 Category__c,
-            	Category__r.Name,
+                Category__r.Name,
                 Zone__c,
-            	Zone__r.Name, 
+                Zone__r.Name, 
                 CreatedDate, 
                 CreatedBy.Id, 
                 CreatedBy.Name, 
@@ -183,7 +207,7 @@ public with sharing class IPIdeaController {
                 CreatedBy.SmallPhotoUrl, 
                 LastViewedDate, 
                 Status__r.Name,
-            	Status__r.Lock_Status__c,
+                Status__r.Lock_Status__c,
                 Title__c, 
                 Total_Votes__c, 
                 Total_Score__c 

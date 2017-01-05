@@ -5,6 +5,14 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>IPChatterUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IPChatterUtilsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>IPIdeaController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -24,6 +32,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>IP_Category__c.Available__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IP_Category__c.Post_to_Chatter_Message__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IP_Category__c.Post_to_Chatter_as_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -121,7 +139,6 @@
         <field>IP_Zone__c.Threshold_Status_Count__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <hasActivationRequired>false</hasActivationRequired>
     <label>IP - Idea Admin</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -179,6 +196,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>IPIdeaViewLightningRedirect</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>IPZoneViewLightningRedirect</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <tabSettings>

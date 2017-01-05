@@ -36,6 +36,26 @@
         // refresh the idea list
         refreshEvent.fire();
         
-    }
+    },
+    
+    setIsIdeaAdmin : function( component, callback ) {
+        
+        // get apex controller action
+        var action = component.get( "c.isIdeaAdmin" );
+
+        action.setCallback( this, function( response ) {
+
+            var state = response.getState();
+            var result = response.getReturnValue();
+
+            if( state == "SUCCESS" ) {
+                callback( result );
+            }
+
+        });
+
+        $A.enqueueAction( action );
+
+    },
     
 })

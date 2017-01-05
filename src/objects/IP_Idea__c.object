@@ -74,6 +74,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Body__c</fullName>
         <description>http://jira.fruit.com/browse/SFDC-1129</description>
